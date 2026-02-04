@@ -51,3 +51,18 @@ export const getProducts = ()=> {
         },3000)
     })
 }
+export const getOneProduct = (id)=> {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            if(error){
+                reject('Hubo un error, intente mas tarde')
+            }else{
+                //harcodeado
+                // resolve(productos[1])
+                //dinamico
+                let prod= productos.find((prd)=> prd.id === id)
+                resolve(prod)
+            }
+        },3000)
+    })
+}
