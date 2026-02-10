@@ -3,7 +3,13 @@ import ItemCount from './ItemCount'
 
 const ItemDetail = ({detail}) => {
   return (
-    <div>
+     <div style={{
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '10px'
+      }}>
         <h2> Detalle de {detail.name}</h2>
         <img src={detail.img} alt={detail.name}/>
         <p>{detail.description}</p>
