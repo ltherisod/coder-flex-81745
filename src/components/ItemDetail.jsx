@@ -2,6 +2,11 @@ import React from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({detail}) => {
+
+  const onAdd = (cantidad)=> {
+    alert(`Agregaste al carrito ${cantidad} unidades del producto ${detail.name}`)
+  }
+
   return (
      <div style={{
         textAlign: 'center',
@@ -15,7 +20,7 @@ const ItemDetail = ({detail}) => {
         <p>{detail.description}</p>
         <p>${detail.price},00</p>
         <p>Stock: {detail.stock} unidades disponibles</p>
-        <ItemCount stock={detail.stock}/>
+        <ItemCount stock={detail.stock} onAdd={onAdd}/>
     </div>
   )
 }

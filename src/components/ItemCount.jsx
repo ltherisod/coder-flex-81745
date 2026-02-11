@@ -20,7 +20,7 @@ const ItemCount = (props)=> {
     }
 
     const shop = ()=> {
-       
+       props.onAdd(count)
     }
 
 
@@ -36,7 +36,10 @@ const ItemCount = (props)=> {
     <button className="btn btn-success" onClick={sumar}>+</button>
   </div>
 
-  <button className="btn btn-primary buy-btn" onClick={shop}>
+  {/* <button className="btn btn-primary buy-btn" onClick={shop}>
+    Comprar
+  </button> */}
+  <button className="btn btn-primary buy-btn" onClick={()=>props.onAdd(count)}>
     Comprar
   </button>
         </div>

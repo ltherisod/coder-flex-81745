@@ -2,6 +2,7 @@ import { getProducts } from "../mock/asyncData"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
+import Input from "../examples/Input"
 
 const ItemListContainer = (props)=> {
     const [data, setData]= useState([])
@@ -30,7 +31,7 @@ const ItemListContainer = (props)=> {
     return(
         <div>
             <h1>{props.mensaje}{type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1>
-        
+            
             <ItemList data={data}/>
         </div>
     )
