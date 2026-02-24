@@ -2,7 +2,7 @@ import { getProducts } from "../mock/asyncData"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
-import Input from "../examples/Input"
+
 
 const ItemListContainer = (props)=> {
     const [data, setData]= useState([])
