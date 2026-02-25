@@ -29,7 +29,7 @@ function NavBarBS() {
             
             </NavDropdown>
           </Nav>
-          <CartWidgetRI/>
+          <CartWidgetRI />
         </Navbar.Collapse>
       </Container>
     </Navbar>

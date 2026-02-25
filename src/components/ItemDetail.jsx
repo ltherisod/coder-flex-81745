@@ -1,11 +1,25 @@
-import React from 'react'
+
+//4. CUANDO QUIERO USAR UN CONTEXTO IMPORTO EL HOOK PARA USAR EL CONTEXT Y EL CONTEXTO QUE QUIERO USAR
+import {useContext, useState} from 'react'
+import { CartContext } from '../context/CartContext'
 import ItemCount from './ItemCount'
+import { Link } from 'react-router-dom'
 
-const ItemDetail = ({detail}) => {
 
+
+const ItemDetail = ({detail }) => {
+  const [purchase, setPurchase]= useState(false)
+const {cart, addItem, itemQty} = useContext(CartContext)
+
+console.log(cart)
   const onAdd = (cantidad)=> {
-    alert(`Agregaste al carrito ${cantidad} unidades del producto ${detail.name}`)
+    // alert(`Agregaste al carrito ${cantidad} unidades del producto ${detail.name}`)
+    addItem(detail, cantidad)
+    setPurchase(true)
+    
   }
+
+  const stockActualizado = detail.stock - itemQty(detail.id)
 
   return (
      <div style={{
@@ -19,8 +33,8 @@ const ItemDetail = ({detail}) => {
         <img src={detail.img} alt={detail.name}/>
         <p>{detail.description}</p>
         <p>${detail.price},00</p>
-        <p>Stock: {detail.stock} unidades disponibles</p>
-        <ItemCount stock={detail.stock} onAdd={onAdd}/>
+        <p>Stock: {stockActualizado} unidades disponibles</p>
+       {purchase ? <Link className='btn btn-dark' to='/cart'>Ir al carrito</Link> : <ItemCount stock={stockActualizado} onAdd={onAdd}/>}
     </div>
   )
 }

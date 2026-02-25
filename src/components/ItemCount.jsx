@@ -27,22 +27,28 @@ const ItemCount = (props)=> {
    
 
     return(
-                <div className="counter-container">
-  <div className="counter-controls">
-    <button className="btn btn-danger" onClick={restar}>-</button>
+                <>
+                {
+                    props.stock > 0
+                    ? <div className="counter-container">
+                                <div className="counter-controls">
+                                    <button className="btn btn-danger" onClick={restar}>-</button>
 
-    <span className="counter-value">{count}</span>
+                                    <span className="counter-value">{count}</span>
 
-    <button className="btn btn-success" onClick={sumar}>+</button>
-  </div>
+                                    <button className="btn btn-success" onClick={sumar}>+</button>
+                                </div>
 
-  {/* <button className="btn btn-primary buy-btn" onClick={shop}>
-    Comprar
-  </button> */}
-  <button className="btn btn-primary buy-btn" onClick={()=>props.onAdd(count)}>
-    Comprar
-  </button>
-        </div>
+                                {/* <button className="btn btn-primary buy-btn" onClick={shop}>
+                                    Comprar
+                                </button> */}
+                                <button className="btn btn-primary buy-btn" disabled={count === 0 || props.stock === 0} onClick={()=>props.onAdd(count)}>
+                                    Comprar
+                                </button>
+                        </div>
+                        :<p>Lo sentimos no tenemos stock 😭</p>
+                }
+                </>
     )
 }
 export default ItemCount
