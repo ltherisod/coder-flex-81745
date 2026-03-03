@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import { Loader } from "./Loader"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../service/firebase"
 
 
 const ItemListContainer = (props)=> {
@@ -10,26 +12,44 @@ const ItemListContainer = (props)=> {
     const [loading, setLoading]= useState(false)
     const {type}= useParams()
 
-
-
-    useEffect(()=>{
+   useEffect(()=>{
         setLoading(true)
-        getProducts()
-        .then((res)=>{
-            if(type){
-                //filtrar
-                 setData(res.filter((prod)=> prod.category === type))
-            }else{
-                 setData(res)
-            }
+        //REF COLLECT (1)
+        const prodColl = type ? query(collection(db, "productos"), where("category", "==", type)) : collection(db, "productos")
+        //traer la inf (2)
+        getDocs(prodColl)
+        .then((res)=> {
+            //limpiar data (3)
+            const list = res.docs.map((doc)=>{
+                return {
+                    id:doc.id,
+                    ...doc.data()
+                }
+            })
+           setData(list)
         })
         .catch((error)=> console.log(error))
         .finally(()=> setLoading(false))
     },[type])
 
-   
-    
-    console.log(type)
+
+
+//PROMISE
+    // useEffect(()=>{
+    //     setLoading(true)
+    //     getProducts()
+    //     .then((res)=>{
+    //         if(type){
+    //             //filtrar
+    //              setData(res.filter((prod)=> prod.category === type))
+    //         }else{
+    //              setData(res)
+    //         }
+    //     })
+    //     .catch((error)=> console.log(error))
+    //     .finally(()=> setLoading(false))
+    // },[type])
+
 
     
     return(
