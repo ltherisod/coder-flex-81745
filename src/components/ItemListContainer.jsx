@@ -1,9 +1,9 @@
-import { getProducts } from "../mock/asyncData"
+import { getProducts, productos } from "../mock/asyncData"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import { Loader } from "./Loader"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../service/firebase"
 
 
@@ -50,7 +50,11 @@ const ItemListContainer = (props)=> {
     //     .finally(()=> setLoading(false))
     // },[type])
 
-
+    // const subirProd = ()=> {
+    //     console.log('SUBIENDO DATA...')
+    //     const collASubir = collection(db, "productos")
+    //     productos.map((prod)=> addDoc(collASubir, prod))
+    // }
     
     return(
        <>
@@ -59,7 +63,8 @@ const ItemListContainer = (props)=> {
         ? <Loader text={type ? 'Cargando Categoría...' : 'Cargando todos los productos...'}/>
         : <div>
             <h1>{props.mensaje}{type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1>
-            
+            {/* DESPUES SE BORRA */}
+            {/* <button onClick={subirProd}>SUBIR DATA</button> */}
             <ItemList data={data}/>
         </div>
        }
