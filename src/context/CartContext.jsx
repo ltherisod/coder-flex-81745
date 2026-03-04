@@ -51,6 +51,21 @@ export const CartProvider = ({children})=> {
         return cart.some(( prod)=> prod.id === id)
     }
 
+    //total a pagar
+        const total = ()=> {
+            return cart.reduce((acc, prod)=> acc += (prod.price * prod.quantity), 0)
+        }
+          //OPCIONAL total a pagar C/ IMP
+        const totalConImp = ()=> {
+            return cart.reduce((acc, prod)=> acc += (prod.price * prod.quantity), 0.5)
+        }
+
+    //total de items
+        const totalQty = ()=> {
+            return cart.reduce((acc, prod)=> acc += prod.quantity,0)
+        }
+
+
     //OPCIONAL
     const itemQty = (id)=> {
         const itemIn = cart.find((prod)=> prod.id === id)
@@ -62,7 +77,7 @@ export const CartProvider = ({children})=> {
     }
 
     return(
-        <CartContext.Provider value={{cart, addItem, clear, removeItem, itemQty}}>
+        <CartContext.Provider value={{cart, addItem, clear, removeItem, itemQty, totalQty, total}}>
             {/* {props.children} */}
             {children}
         </CartContext.Provider>
