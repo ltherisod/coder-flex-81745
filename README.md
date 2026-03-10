@@ -1,16 +1,31 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Coder Flex App 🛒
 
-Currently, two official plugins are available:
+Este proyecto fue realizado para enseñar las bases de react con JS en Coderhouse.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![app](/public/readme.png)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Instalación ⚙️
 
-## Expanding the ESLint configuration
+1. Clone el repositorio.
+2. Muevase a la carpeta creada con el comando ` cd coder-flex-81745`
+3. Ejecute el comando `npm install`, para instalar dependencias y crear la carpeta `node_modules`
+4. Ejecute el comando `npm run dev` para levantar la app en un entorno local.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Es necesario contar con Node v22.11.0 instalada
+
+
+### Version Host 💻
+Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder App ]()
+
+
+### Librerias utilizadas 📖
+
+- [React Bootstrap](https://react-bootstrap.netlify.app): utilizada para el styling de la App.
+- [React Icons](https://react-bootstrap.netlify.app): librería de iconos utilizada.
+- [React Router Dom](https://reactrouter.com): utilizada para aplicar la navegación por rutas.
+- [Firebase](https://firebase.google.com/): configurada para base de datos.
+
+
+Desarrollado por Laura ✨
