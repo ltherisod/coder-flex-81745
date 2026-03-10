@@ -4,6 +4,7 @@ import {useContext, useState} from 'react'
 import { CartContext } from '../context/CartContext'
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 
 
@@ -11,9 +12,17 @@ const ItemDetail = ({detail }) => {
   const [purchase, setPurchase]= useState(false)
 const {cart, addItem, itemQty} = useContext(CartContext)
 
-console.log(cart)
   const onAdd = (cantidad)=> {
-    // alert(`Agregaste al carrito ${cantidad} unidades del producto ${detail.name}`)
+    Swal.fire(
+      {
+        position:'top-end',
+        icon:'success',
+        title:`Agregaste ${detail.name} al carrito`,
+        showCancelButton:false,
+        showConfirmButton:false,
+        timer:1000
+      }
+    )
     addItem(detail, cantidad)
     setPurchase(true)
     

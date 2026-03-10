@@ -32,29 +32,6 @@ const ItemListContainer = (props)=> {
         .finally(()=> setLoading(false))
     },[type])
 
-
-
-//PROMISE
-    // useEffect(()=>{
-    //     setLoading(true)
-    //     getProducts()
-    //     .then((res)=>{
-    //         if(type){
-    //             //filtrar
-    //              setData(res.filter((prod)=> prod.category === type))
-    //         }else{
-    //              setData(res)
-    //         }
-    //     })
-    //     .catch((error)=> console.log(error))
-    //     .finally(()=> setLoading(false))
-    // },[type])
-
-    // const subirProd = ()=> {
-    //     console.log('SUBIENDO DATA...')
-    //     const collASubir = collection(db, "productos")
-    //     productos.map((prod)=> addDoc(collASubir, prod))
-    // }
     
     return(
        <>
@@ -63,8 +40,6 @@ const ItemListContainer = (props)=> {
         ? <Loader text={type ? 'Cargando Categoría...' : 'Cargando todos los productos...'}/>
         : <div>
             <h1>{props.mensaje}{type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1>
-            {/* DESPUES SE BORRA */}
-            {/* <button onClick={subirProd}>SUBIR DATA</button> */}
             <ItemList data={data}/>
         </div>
        }
